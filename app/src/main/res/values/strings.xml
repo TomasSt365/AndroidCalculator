@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string name="text">Text</string>
+    <string name="text">Welcome</string>
     <string name="editText">Ввод текста</string>
     <string name="buttonText">Done</string>
+    <string name="switchText">Включить компонент</string>
 </resources>
