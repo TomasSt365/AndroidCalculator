@@ -35,6 +35,11 @@
         android:inputType="numberPassword"
         tools:ignore="Autofill,LabelFor"/>
 
-
+    <EditText
+        android:id="@+id/edit_text5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        tools:ignore="Autofill,LabelFor"/>
 
 </LinearLayout>
