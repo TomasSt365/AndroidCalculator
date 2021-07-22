@@ -8,14 +8,14 @@
 
     <EditText
         android:id="@+id/edit_text1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         tools:ignore="Autofill,LabelFor"/>
 
     <EditText
         android:id="@+id/edit_text2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:importantForAutofill="no"
@@ -23,10 +23,17 @@
 
     <EditText
         android:id="@+id/edit_text3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        tools:ignore="Autofill,LabelFor" />
+        tools:ignore="Autofill,LabelFor"/>
+
+    <EditText
+        android:id="@+id/edit_text4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        tools:ignore="Autofill,LabelFor"/>
 
 
 
