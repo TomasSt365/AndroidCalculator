@@ -10,12 +10,24 @@
         android:id="@+id/edit_text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType=""/>
+        android:inputType="text"
+        tools:ignore="Autofill,LabelFor"/>
 
     <EditText
         android:id="@+id/edit_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType=""/>
+        android:inputType="phone"
+        android:importantForAutofill="no"
+        tools:ignore="Autofill,LabelFor"/>
+
+    <EditText
+        android:id="@+id/edit_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        tools:ignore="Autofill,LabelFor" />
+
+
 
 </LinearLayout>
