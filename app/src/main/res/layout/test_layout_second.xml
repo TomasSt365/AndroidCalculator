@@ -56,6 +56,18 @@
         android:inputType="textEmailSubject"
         tools:ignore="Autofill,LabelFor"/>
 
+    <EditText
+        android:id="@+id/edit_text8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="datetime"
+        tools:ignore="Autofill,LabelFor"/>
 
+    <EditText
+        android:id="@+id/edit_text9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textUri"
+        tools:ignore="Autofill,LabelFor"/>
 
 </LinearLayout>
