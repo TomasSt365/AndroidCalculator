@@ -10,32 +10,39 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="80sp"
+        android:layout_gravity="center"
         android:fontFamily="cursive"
         android:text="@string/text"
         android:textColor="@color/purple_500"
-        android:layout_gravity="center"
-        />
+        android:textSize="80sp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/edit_text1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:autofillHints="text"
+        android:inputType="text"
+        android:text="@string/editText"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        tools:ignore="LabelFor" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <Switch
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <CheckBox
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <ToggleButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
