@@ -3,6 +3,7 @@
     <string name="text">Welcome</string>
     <string name="editText">Ввод текста</string>
     <string name="buttonText">Done</string>
-    <string name="switchText">Включить компонент</string>
+    <string name="switchText">Включить компонент 1</string>
     <string name="checkBoxText">Принять соглашение</string>
+    <string name="toggleButtonText">Режим компонета 2:</string>
 </resources>
