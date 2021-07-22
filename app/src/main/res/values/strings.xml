@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Calculator</string>
     <string name="text">Welcome</string>
-    <string name="editText">Ввод текста</string>
+    <string name="editText">Text</string>
     <string name="buttonText">Done</string>
     <string name="switchText">Включить компонент 1</string>
     <string name="checkBoxText">Принять соглашение</string>
     <string name="toggleButtonText">Режим компонета 2:</string>
+    <string name="textOn">On</string>
+    <string name="textOff">Off</string>
 </resources>
