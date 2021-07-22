@@ -16,22 +16,6 @@
         android:textColor="@color/purple_500"
         android:textSize="80sp" />
 
-    <EditText
-        android:id="@+id/edit_text1"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:autofillHints="text"
-        android:inputType="text"
-        android:text="@string/editText"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"
-        tools:ignore="LabelFor" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -43,6 +27,27 @@
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edit_text1"
+        android:layout_width="275dp"
+        android:layout_height="110dp"
+        android:autofillHints="text"
+        android:inputType="text"
+        android:text="@string/editText"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#EFE02020"
+        android:textColor="#FFFFFF"
+        android:text="@string/buttonText"
+        />
 
 
 </LinearLayout>
