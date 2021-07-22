@@ -23,10 +23,6 @@
         android:text="@string/switchText"
         android:textSize="20sp"/>
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -41,6 +37,15 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="20sp"
         tools:ignore="LabelFor" />
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkBoxText"
+        android:textSize="10sp"
+        android:textColor="@android:color/tertiary_text_light"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/button1"
