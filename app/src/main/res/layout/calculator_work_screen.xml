@@ -13,4 +13,11 @@
         android:text="@string/button1"
         tools:ignore="MissingConstraints"/>
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button2"
+        tools:ignore="MissingConstraints"/>
+
 </android.support.constraint.ConstraintLayout>
