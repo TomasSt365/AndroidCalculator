@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,8 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button1"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -21,9 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button2"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -31,8 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button3"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button2"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -40,9 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -50,10 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -61,9 +45,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -71,8 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -80,9 +59,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -90,8 +66,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button9"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -99,9 +73,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button0"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
@@ -109,62 +80,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/plus"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/minus"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_multiply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/multiply"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_divide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/divide"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/percent"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_clear_symbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clearSymbol"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_all_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/allClear"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_comma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/comma"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_equals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/equals"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
