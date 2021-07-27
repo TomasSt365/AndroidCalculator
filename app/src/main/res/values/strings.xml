@@ -23,7 +23,7 @@
     <string name="multiply">X</string>
     <string name="divide">/</string>
     <string name="percent">%</string>
-    <string name="clearSymbol">C</string>
+    <string name="deleteSymbol">DEL</string>
     <string name="allClear">CC</string>
     <string name="comma">,</string>
     <string name="equals">=</string>
