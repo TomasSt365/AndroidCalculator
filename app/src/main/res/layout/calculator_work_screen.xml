@@ -160,4 +160,11 @@
         android:text="@string/comma"
         tools:ignore="MissingConstraints"/>
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/button_equals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equals"
+        tools:ignore="MissingConstraints"/>
+
 </android.support.constraint.ConstraintLayout>

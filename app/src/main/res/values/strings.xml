@@ -24,5 +24,8 @@
     <string name="divide">/</string>
     <string name="percent">%</string>
     <string name="clearSymbol">C</string>
+    <string name="allClear">CC</string>
+    <string name="comma">,</string>
+    <string name="equals">=</string>
 
 </resources>
