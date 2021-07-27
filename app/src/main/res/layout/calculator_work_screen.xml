@@ -11,25 +11,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90"/>
+        app:layout_constraintGuide_percent="0.96" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10"/>
+        app:layout_constraintGuide_percent="0.04"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.275"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.73" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button1"
         android:textSize="@dimen/buttonSize"
@@ -37,7 +58,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button2"
         android:textSize="@dimen/buttonSize"
@@ -45,7 +66,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button3"
         android:textSize="@dimen/buttonSize"
@@ -53,7 +74,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button4"
         android:textSize="@dimen/buttonSize"
@@ -61,7 +82,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button5"
         android:textSize="@dimen/buttonSize"
@@ -69,7 +90,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button6"
         android:textSize="@dimen/buttonSize"
@@ -77,7 +98,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button7"
         android:textSize="@dimen/buttonSize"
@@ -85,7 +106,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button8"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button8"
         android:textSize="@dimen/buttonSize"
@@ -93,7 +114,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button9"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button9"
         android:textSize="@dimen/buttonSize"
@@ -101,7 +122,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button0"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button0"
         android:textSize="@dimen/buttonSize"
@@ -109,7 +130,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_plus"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/plus"
         android:textSize="@dimen/buttonSize"
@@ -117,7 +138,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_minus"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/minus"
         android:textSize="@dimen/buttonSize"
@@ -125,7 +146,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_multiply"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/multiply"
         android:textSize="@dimen/buttonSize"
@@ -133,7 +154,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_divide"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/divide"
         android:textSize="@dimen/buttonSize"
@@ -141,7 +162,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_percent"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/percent"
         android:textSize="@dimen/buttonSize"
@@ -149,7 +170,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_clear_symbol"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/clearSymbol"
         android:textSize="@dimen/buttonSize"
@@ -157,7 +178,7 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_all_clear"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/allClear"
         android:textSize="@dimen/buttonSize"
@@ -165,11 +186,11 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_comma"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/comma"
         android:textSize="@dimen/buttonSize"
-        tools:ignore="MissingConstraints,SpUsage"/>
+        tools:ignore="MissingConstraints,SpUsage" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_equals"
@@ -177,6 +198,6 @@
         android:layout_height="wrap_content"
         android:text="@string/equals"
         android:textSize="@dimen/buttonSize"
-        tools:ignore="MissingConstraints,SpUsage"/>
+        tools:ignore="MissingConstraints,SpUsage" />
 
 </android.support.constraint.ConstraintLayout>
