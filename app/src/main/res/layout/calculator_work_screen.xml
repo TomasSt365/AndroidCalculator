@@ -125,4 +125,11 @@
         android:text="@string/multiply"
         tools:ignore="MissingConstraints"/>
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/button_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/divide"
+        tools:ignore="MissingConstraints"/>
+
 </android.support.constraint.ConstraintLayout>
