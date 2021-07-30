@@ -9,10 +9,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private int result = 0;
-    private int numberRank = 1;
-    private String resultText = "";
     private TextView resultTextView;
+    private String resultText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,17 +65,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
+        final int BUTTON1_NUMBER = 1;
+        final int BUTTON2_NUMBER = 2;
+        final int BUTTON3_NUMBER = 3;
+        final int BUTTON4_NUMBER = 4;
+        final int BUTTON5_NUMBER = 5;
+        final int BUTTON6_NUMBER = 6;
+        final int BUTTON7_NUMBER = 7;
+        final int BUTTON8_NUMBER = 8;
+        final int BUTTON9_NUMBER = 9;
+        final int BUTTON0_NUMBER = 0;
         switch (v.getId()){
             case R.id.button1:
+                onNumberButtonClick(BUTTON1_NUMBER);
+                break;
             case R.id.button2:
+                onNumberButtonClick(BUTTON2_NUMBER);
+                break;
             case R.id.button3:
+                onNumberButtonClick(BUTTON3_NUMBER);
+                break;
             case R.id.button4:
+                onNumberButtonClick(BUTTON4_NUMBER);
+                break;
             case R.id.button5:
+                onNumberButtonClick(BUTTON5_NUMBER);
+                break;
             case R.id.button6:
+                onNumberButtonClick(BUTTON6_NUMBER);
+                break;
             case R.id.button7:
+                onNumberButtonClick(BUTTON7_NUMBER);
+                break;
             case R.id.button8:
+                onNumberButtonClick(BUTTON8_NUMBER);
+                break;
             case R.id.button9:
+                onNumberButtonClick(BUTTON9_NUMBER);
+                break;
             case R.id.button0:
+                onNumberButtonClick(BUTTON0_NUMBER);
+                break;
 
             case R.id.button_plus:
             case R.id.button_minus:
@@ -92,6 +120,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    private void onNumberButtonClick(int buttonNumber) {
+        resultText += String.valueOf(buttonNumber);
+        resultTextView.setText(resultText);
     }
 
 }
