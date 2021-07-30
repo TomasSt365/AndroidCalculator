@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int result = 0;
     private int numberRank = 1;
@@ -67,8 +67,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button1:
+            case R.id.button2:
+            case R.id.button3:
+            case R.id.button4:
+            case R.id.button5:
+            case R.id.button6:
+            case R.id.button7:
+            case R.id.button8:
+            case R.id.button9:
+            case R.id.button0:
 
+            case R.id.button_plus:
+            case R.id.button_minus:
+            case R.id.button_multiply:
+            case R.id.button_divide:
+            case R.id.button_percent:
+            case R.id.button_delete_symbol:
+            case R.id.button_all_clear:
+            case R.id.button_comma:
+            case R.id.button_equals:
+
+            default:
+                break;
         }
-
     }
+
 }
