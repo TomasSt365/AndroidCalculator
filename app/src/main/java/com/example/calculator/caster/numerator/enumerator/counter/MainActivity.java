@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView resultTextView;
     private String resultText = "";
+    private Data data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onNumberButtonClick(int buttonNumber) {
+        data.addData(buttonNumber);
         resultText += String.valueOf(buttonNumber);
         resultTextView.setText(resultText);
     }
