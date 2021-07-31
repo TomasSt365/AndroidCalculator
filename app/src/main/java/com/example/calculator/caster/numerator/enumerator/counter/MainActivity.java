@@ -21,11 +21,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final char COMMA = '.';
     private final char PlUS = '+';
     private final char MINUS = '-';
-    private final char MULTIPLY = '*';
+    private final char MULTIPLY = 'X';
     private final char DIVIDE = '/';
     private final char PERCENT = '%';
+    private final int LIMIT_SYMBOLS = 12;
 
     private TextView resultTextView;
+    private TextView errorTextView;
+    private int numberOfEnteredSymbols = 0;
     private String resultText = "0";
     private String memoryCell = " ";
     private boolean isCommaNotEntered = true;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         resultTextView = findViewById(R.id.resultText);
+        errorTextView = findViewById(R.id.errorText);
         resultTextView.setText(resultText);
 
         Button button1 = findViewById(R.id.button1);
@@ -136,30 +140,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 onOperatorButtonClick(DIVIDE);
                 break;
             case R.id.button_percent:
-                onOperatorButtonClick(PERCENT);
+
+                errorTextView.setText("Операция % недоступна!");
                 break;
 
 
             case R.id.button_delete_symbol:
-                resultText = removeLastChar(resultText);
-                data.addData(resultText);
-                resultTextView.setText(resultText);
+                errorTextView.setText("Операция DEL недоступна!");
                 break;
             case R.id.button_all_clear:
-                data.clearAll();
-                resultText = "0";
-                memoryCell = " ";
-                isZeroFirst = true;
-                isCommaNotEntered = true;
-                isOperatorNotEntered = true;
-                resultTextView.setText(resultText);
+                errorTextView.setText("");
+                reset();
                 break;
             case R.id.button_equals:
+                errorTextView.setText("");
                 resultText = String.valueOf(data.equals());
+                if(resultText.equals("Infinity") || resultText.equals("NaN"))  {
+                    errorTextView.setText("ERROR!");
+                    reset();
+                }
                 resultTextView.setText("= " + resultText);
                 memoryCell = " ";
                 isOperatorNotEntered = true;
                 isCommaNotEntered = false;
+                break;
             default:
                 break;
         }
@@ -167,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void onSymbolButtonClick(char symbol) {
+        errorTextView.setText("");
         switch (symbol) {
             case COMMA:
                 if (isCommaNotEntered) {
@@ -194,25 +199,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onOperatorButtonClick(char operator){
+        errorTextView.setText("");
         if(isOperatorNotEntered){
+            isCommaNotEntered = true;
+            isZeroFirst = false;
+            isOperatorNotEntered = false;
             data.operation(operator);
             memoryCell = resultText + " " + operator + " ";
             resultTextView.setText(String.format("%s", memoryCell));
             resultText = "";
-            isOperatorNotEntered = false;
+            numberOfEnteredSymbols = 0;
         }
     }
 
     private void saveAndPrintSymbol(char symbol) {
-        resultText += symbol;
-        resultTextView.setText(String.format("%s%s", memoryCell, resultText));
-        data.addData(resultText);
+        if(LIMIT_SYMBOLS != numberOfEnteredSymbols){
+            resultText += symbol;
+            resultTextView.setText(String.format("%s%s", memoryCell, resultText));
+            data.addData(resultText);
+            numberOfEnteredSymbols++;
+        }
     }
 
-    private String removeLastChar(String str) {
-        if (str == null || str.length() == 0 || str.equals("0")) {
-            return str;
-        }
-        return str.substring(0, str.length() - 1);
+    private void reset(){
+        data.clearAll();
+        numberOfEnteredSymbols = 0;
+        resultText = "0";
+        memoryCell = " ";
+        isZeroFirst = true;
+        isCommaNotEntered = true;
+        isOperatorNotEntered = true;
+        resultTextView.setText(resultText);
+        data.addData(resultText);
     }
 }
