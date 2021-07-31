@@ -8,44 +8,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private final char BUTTON1_NUMBER = '1';
-    private final char BUTTON2_NUMBER = '2';
-    private final char BUTTON3_NUMBER = '3';
-    private final char BUTTON4_NUMBER = '4';
-    private final char BUTTON5_NUMBER = '5';
-    private final char BUTTON6_NUMBER = '6';
-    private final char BUTTON7_NUMBER = '7';
-    private final char BUTTON8_NUMBER = '8';
-    private final char BUTTON9_NUMBER = '9';
-    private final char BUTTON0_NUMBER = '0';
-    private final char COMMA = '.';
-    private final char PlUS = '+';
-    private final char MINUS = '-';
-    private final char MULTIPLY = 'X';
-    private final char DIVIDE = '÷';
-    private final char PERCENT = '%';
-    private final int LIMIT_SYMBOLS = 12;
-
     private TextView resultTextView;
     private TextView errorTextView;
-    private int numberOfEnteredSymbols = 0;
-    private char operator;
-    private double basicData;
-    private double memoryCell;
-    private String resultText = "0";
-    private String memoryCellText = " ";
-    private boolean isCommaNotEntered = true;
-    private boolean isZeroFirst = true;
-    private boolean isOperatorNotEntered = true;
+    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        data = new Data();
         resultTextView = findViewById(R.id.resultText);
         errorTextView = findViewById(R.id.errorText);
-        resultTextView.setText(resultText);
+        resultTextView.setText(data.getResultText());
+
 
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
@@ -90,179 +66,125 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+    }
+
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
     @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button1:
-                onSymbolButtonClick(BUTTON1_NUMBER);
+                onSymbolButtonClick(data.getBUTTON1_NUMBER());
                 break;
             case R.id.button2:
-                onSymbolButtonClick(BUTTON2_NUMBER);
+                onSymbolButtonClick(data.getBUTTON2_NUMBER());
                 break;
             case R.id.button3:
-                onSymbolButtonClick(BUTTON3_NUMBER);
+                onSymbolButtonClick(data.getBUTTON3_NUMBER());
                 break;
             case R.id.button4:
-                onSymbolButtonClick(BUTTON4_NUMBER);
+                onSymbolButtonClick(data.getBUTTON4_NUMBER());
                 break;
             case R.id.button5:
-                onSymbolButtonClick(BUTTON5_NUMBER);
+                onSymbolButtonClick(data.getBUTTON5_NUMBER());
                 break;
             case R.id.button6:
-                onSymbolButtonClick(BUTTON6_NUMBER);
+                onSymbolButtonClick(data.getBUTTON6_NUMBER());
                 break;
             case R.id.button7:
-                onSymbolButtonClick(BUTTON7_NUMBER);
+                onSymbolButtonClick(data.getBUTTON7_NUMBER());
                 break;
             case R.id.button8:
-                onSymbolButtonClick(BUTTON8_NUMBER);
+                onSymbolButtonClick(data.getBUTTON8_NUMBER());
                 break;
             case R.id.button9:
-                onSymbolButtonClick(BUTTON9_NUMBER);
+                onSymbolButtonClick(data.getBUTTON9_NUMBER());
                 break;
             case R.id.button0:
-                onSymbolButtonClick(BUTTON0_NUMBER);
+                onSymbolButtonClick(data.getBUTTON0_NUMBER());
                 break;
             case R.id.button_comma:
-                onSymbolButtonClick(COMMA);
+                onSymbolButtonClick(data.getCOMMA());
                 break;
 
 
             case R.id.button_plus:
-                onOperatorButtonClick(PlUS);
+                onOperatorButtonClick(data.getPlUS());
                 break;
             case R.id.button_minus:
-                onOperatorButtonClick(MINUS);
+                onOperatorButtonClick(data.getMINUS());
                 break;
             case R.id.button_multiply:
-                onOperatorButtonClick(MULTIPLY);
+                onOperatorButtonClick(data.getMULTIPLY());
                 break;
             case R.id.button_divide:
-                onOperatorButtonClick(DIVIDE);
+                onOperatorButtonClick(data.getDIVIDE());
                 break;
-            case R.id.button_percent:
 
+
+            case R.id.button_percent:
                 errorTextView.setText("Операция % недоступна!");
                 break;
-
-
             case R.id.button_delete_symbol:
                 errorTextView.setText("Операция DEL недоступна!");
                 break;
+
+
             case R.id.button_all_clear:
                 errorTextView.setText("");
                 reset();
                 break;
             case R.id.button_equals:
                 errorTextView.setText("");
-                resultText = String.valueOf(equals());
-                if(resultText.equals("Infinity") || resultText.equals("NaN"))  {
+                data.equals();
+                if(data.getResultText().equals("Infinity") || data.getResultText().equals("NaN"))  {
                     errorTextView.setText("ERROR!");
                     reset();
+                    break;
                 }
-                resultTextView.setText("= " + resultText);
-                memoryCellText = " ";
-                isOperatorNotEntered = true;
-                isCommaNotEntered = false;
+                resultTextView.setText("= " + data.getResultText());
                 break;
             default:
                 break;
         }
     }
-
 
     private void onSymbolButtonClick(char symbol) {
         errorTextView.setText("");
-        switch (symbol) {
-            case COMMA:
-                if (isCommaNotEntered) {
-                    isCommaNotEntered = false;
-                    isZeroFirst = false;
-                    saveAndPrintSymbol(symbol);
-                }
-                break;
-
-            case BUTTON0_NUMBER:
-                if (!isZeroFirst) {
-                    saveAndPrintSymbol(symbol);
-                }
-                break;
-
-            default:
-                if (isZeroFirst) {
-                    resultText = "";
-                    isZeroFirst = false;
-                }
-                saveAndPrintSymbol(symbol);
-                break;
-        }
-
+        data.onSymbolButtonClick(symbol);
+        resultTextView.setText(String.format("%s%s", data.getMemoryCellText(), data.getResultText()));
     }
 
-    private void onOperatorButtonClick(char operator){
+    private void onOperatorButtonClick(String operator){
         errorTextView.setText("");
-        if(isOperatorNotEntered){
-            isCommaNotEntered = true;
-            isZeroFirst = false;
-            isOperatorNotEntered = false;
-            operation(operator);
-            memoryCellText = resultText + " " + operator + " ";
-            resultTextView.setText(String.format("%s", memoryCellText));
-            resultText = "";
-            numberOfEnteredSymbols = 0;
-        }
-    }
-
-    private void saveAndPrintSymbol(char symbol) {
-        if(LIMIT_SYMBOLS != numberOfEnteredSymbols){
-            resultText += symbol;
-            resultTextView.setText(String.format("%s%s", memoryCellText, resultText));
-            basicData = Double.parseDouble(resultText);
-            numberOfEnteredSymbols++;
+        if(data.getIsOperatorNotEntered() == data.getTRUE()){
+            data.onOperatorButtonClick(operator);
+            resultTextView.setText(String.format("%s", data.getMemoryCellText()));
         }
     }
 
     private void reset(){
-        basicData = 0;
-        memoryCell = 0;
-        numberOfEnteredSymbols = 0;
-        resultText = "0";
-        memoryCellText = " ";
-        isZeroFirst = true;
-        isCommaNotEntered = true;
-        isOperatorNotEntered = true;
-        resultTextView.setText(resultText);
-        basicData = Double.parseDouble(resultText);
+        data.reset();
+        resultTextView.setText(data.getResultText());
     }
 
-    private void operation(char operator){
-        this.operator = operator;
-        memoryCell = basicData;
-        basicData = 0;
-    }
-
-    private double equals(){
-        switch (operator){
-            case PlUS:
-                basicData += memoryCell;
-                break;
-            case MINUS:
-                basicData = memoryCell - basicData;
-                break;
-            case MULTIPLY:
-                basicData *= memoryCell;
-                break;
-            case DIVIDE:
-                basicData = memoryCell / basicData  ;
-                break;
-            case PERCENT:
-                break;
-            default:
-                break;
-        }
-        memoryCell = 0;
-        return basicData;
-    }
 
 }
