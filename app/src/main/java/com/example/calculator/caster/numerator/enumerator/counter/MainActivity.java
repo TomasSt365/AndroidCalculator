@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_equals:
                 errorTextView.setText("");
-                data.equals();
+                if(data.getIsOperatorNotEntered() == data.getFALSE()){
+                    data.equals();
+                }
                 if(data.getResultText().equals("Infinity") || data.getResultText().equals("NaN"))  {
                     errorTextView.setText("ERROR!");
                     reset();

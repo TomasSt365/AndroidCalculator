@@ -294,5 +294,6 @@ public class Data implements Parcelable {
         memoryCellText = " ";
         isOperatorNotEntered = TRUE;
         isCommaNotEntered = FALSE;
+        isEqualsEntered = TRUE;
     }
 }
