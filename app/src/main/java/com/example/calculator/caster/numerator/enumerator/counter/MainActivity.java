@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final char PlUS = '+';
     private final char MINUS = '-';
     private final char MULTIPLY = 'X';
-    private final char DIVIDE = '/';
+    private final char DIVIDE = '÷';
     private final char PERCENT = '%';
     private final int LIMIT_SYMBOLS = 12;
 
