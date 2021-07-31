@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
     }
 
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
     }
 
@@ -116,10 +116,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_equals:
                 errorTextView.setText("");
-                if(data.getIsOperatorNotEntered() == data.getFALSE()){
+                if (data.getIsOperatorNotEntered() == data.getFALSE()) {
                     data.equals();
                 }
-                if(data.getResultText().equals("Infinity") || data.getResultText().equals("NaN"))  {
+                if (data.getResultText().equals("Infinity") || data.getResultText().equals("NaN")) {
                     errorTextView.setText("ERROR!");
                     reset();
                     break;
@@ -137,20 +137,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setResultText();
     }
 
-    private void onOperatorButtonClick(String operator){
+    private void onOperatorButtonClick(String operator) {
         errorTextView.setText("");
-        if(data.getIsOperatorNotEntered() == data.getTRUE()){
+        if (data.getIsOperatorNotEntered() == data.getTRUE()) {
             data.onOperatorButtonClick(operator);
             setResultText();
         }
     }
 
-    private void reset(){
+    private void reset() {
         data.reset();
         setResultText();
     }
 
-    private void initView(){
+    private void initView() {
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
@@ -194,10 +194,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_equals.setOnClickListener(this);
     }
 
-    private void setResultText(){
-        if(data.getIsEqualsEntered() == data.getTRUE())
+    private void setResultText() {
+        if (data.getIsEqualsEntered() == data.getTRUE())
             resultTextView.setText(String.format("= %s", data.getResultText()));
-        else{
+        else {
             resultTextView.setText(String.format("%s%s", data.getMemoryCellText(), data.getResultText()));
         }
     }
@@ -212,6 +212,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         data = savedInstanceState.getParcelable(KEY);
-
+        setResultText();
     }
 }

@@ -35,7 +35,7 @@ public class Data implements Parcelable {
     private byte isOperatorNotEntered;
     private byte isEqualsEntered;
 
-    public Data(){
+    public Data() {
         numberOfEnteredSymbols = 0;
         resultText = "0";
         memoryCellText = " ";
@@ -74,7 +74,7 @@ public class Data implements Parcelable {
         return numberOfEnteredSymbols;
     }
 
-    public String  getOperator() {
+    public String getOperator() {
         return operator;
     }
 
@@ -231,9 +231,9 @@ public class Data implements Parcelable {
         }
     }
 
-    public void onOperatorButtonClick(String operator){
+    public void onOperatorButtonClick(String operator) {
         isEqualsEntered = FALSE;
-        if(isOperatorNotEntered == TRUE){
+        if (isOperatorNotEntered == TRUE) {
             isCommaNotEntered = TRUE;
             isZeroFirst = FALSE;
             isOperatorNotEntered = FALSE;
@@ -247,14 +247,14 @@ public class Data implements Parcelable {
     }
 
     private void saveSymbol(char symbol) {
-        if(LIMIT_SYMBOLS != numberOfEnteredSymbols){
+        if (LIMIT_SYMBOLS != numberOfEnteredSymbols) {
             resultText += symbol;
             basicData = Double.parseDouble(resultText);
             numberOfEnteredSymbols++;
         }
     }
 
-    public void reset(){
+    public void reset() {
         basicData = 0;
         memoryCell = 0;
         numberOfEnteredSymbols = 0;
@@ -266,8 +266,8 @@ public class Data implements Parcelable {
         basicData = Double.parseDouble(resultText);
     }
 
-    public double calculationResult(){
-        switch (operator){
+    public double calculationResult() {
+        switch (operator) {
             case PlUS:
                 basicData += memoryCell;
                 break;
@@ -278,7 +278,7 @@ public class Data implements Parcelable {
                 basicData *= memoryCell;
                 break;
             case DIVIDE:
-                basicData = memoryCell / basicData  ;
+                basicData = memoryCell / basicData;
                 break;
             case PERCENT:
                 break;
