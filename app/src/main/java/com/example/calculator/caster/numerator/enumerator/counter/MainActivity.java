@@ -29,12 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView resultTextView;
     private TextView errorTextView;
     private int numberOfEnteredSymbols = 0;
+    private char operator;
+    private double basicData;
+    private double memoryCell;
     private String resultText = "0";
-    private String memoryCell = " ";
+    private String memoryCellText = " ";
     private boolean isCommaNotEntered = true;
     private boolean isZeroFirst = true;
     private boolean isOperatorNotEntered = true;
-    private final Data data = new Data();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,13 +156,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_equals:
                 errorTextView.setText("");
-                resultText = String.valueOf(data.equals());
+                resultText = String.valueOf(equals());
                 if(resultText.equals("Infinity") || resultText.equals("NaN"))  {
                     errorTextView.setText("ERROR!");
                     reset();
                 }
                 resultTextView.setText("= " + resultText);
-                memoryCell = " ";
+                memoryCellText = " ";
                 isOperatorNotEntered = true;
                 isCommaNotEntered = false;
                 break;
@@ -204,9 +206,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             isCommaNotEntered = true;
             isZeroFirst = false;
             isOperatorNotEntered = false;
-            data.operation(operator);
-            memoryCell = resultText + " " + operator + " ";
-            resultTextView.setText(String.format("%s", memoryCell));
+            operation(operator);
+            memoryCellText = resultText + " " + operator + " ";
+            resultTextView.setText(String.format("%s", memoryCellText));
             resultText = "";
             numberOfEnteredSymbols = 0;
         }
@@ -215,21 +217,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void saveAndPrintSymbol(char symbol) {
         if(LIMIT_SYMBOLS != numberOfEnteredSymbols){
             resultText += symbol;
-            resultTextView.setText(String.format("%s%s", memoryCell, resultText));
-            data.addData(resultText);
+            resultTextView.setText(String.format("%s%s", memoryCellText, resultText));
+            basicData = Double.parseDouble(resultText);
             numberOfEnteredSymbols++;
         }
     }
 
     private void reset(){
-        data.clearAll();
+        basicData = 0;
+        memoryCell = 0;
         numberOfEnteredSymbols = 0;
         resultText = "0";
-        memoryCell = " ";
+        memoryCellText = " ";
         isZeroFirst = true;
         isCommaNotEntered = true;
         isOperatorNotEntered = true;
         resultTextView.setText(resultText);
-        data.addData(resultText);
+        basicData = Double.parseDouble(resultText);
     }
+
+    private void operation(char operator){
+        this.operator = operator;
+        memoryCell = basicData;
+        basicData = 0;
+    }
+
+    private double equals(){
+        switch (operator){
+            case PlUS:
+                basicData += memoryCell;
+                break;
+            case MINUS:
+                basicData = memoryCell - basicData;
+                break;
+            case MULTIPLY:
+                basicData *= memoryCell;
+                break;
+            case DIVIDE:
+                basicData = memoryCell / basicData  ;
+                break;
+            case PERCENT:
+                break;
+            default:
+                break;
+        }
+        memoryCell = 0;
+        return basicData;
+    }
+
 }
