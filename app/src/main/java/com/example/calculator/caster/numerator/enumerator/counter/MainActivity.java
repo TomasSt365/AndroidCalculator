@@ -7,11 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.zip.ZipEntry;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView resultTextView;
-    private String resultText = "0";
     private final char BUTTON1_NUMBER = '1';
     private final char BUTTON2_NUMBER = '2';
     private final char BUTTON3_NUMBER = '3';
@@ -23,8 +19,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final char BUTTON9_NUMBER = '9';
     private final char BUTTON0_NUMBER = '0';
     private final char COMMA = '.';
+    private final char PlUS = '+';
+    private final char MINUS = '-';
+    private final char MULTIPLY = '*';
+    private final char DIVIDE = '/';
+    private final char PERCENT = '%';
+
+    private TextView resultTextView;
+    private String resultText = "0";
+    private String memoryCell = " ";
     private boolean isCommaNotEntered = true;
     private boolean isZeroFirst = true;
+    private boolean isOperatorNotEntered = true;
     private final Data data = new Data();
 
     @Override
@@ -118,29 +124,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.button_plus:
+                onOperatorButtonClick(PlUS);
                 break;
             case R.id.button_minus:
+                onOperatorButtonClick(MINUS);
                 break;
             case R.id.button_multiply:
+                onOperatorButtonClick(MULTIPLY);
                 break;
             case R.id.button_divide:
+                onOperatorButtonClick(DIVIDE);
                 break;
             case R.id.button_percent:
+                onOperatorButtonClick(PERCENT);
                 break;
+
+
             case R.id.button_delete_symbol:
                 resultText = removeLastChar(resultText);
+                data.addData(resultText);
                 resultTextView.setText(resultText);
                 break;
             case R.id.button_all_clear:
                 data.clearAll();
                 resultText = "0";
+                memoryCell = " ";
                 isZeroFirst = true;
                 isCommaNotEntered = true;
+                isOperatorNotEntered = true;
                 resultTextView.setText(resultText);
                 break;
             case R.id.button_equals:
                 resultText = String.valueOf(data.equals());
                 resultTextView.setText("= " + resultText);
+                memoryCell = " ";
+                isOperatorNotEntered = true;
+                isCommaNotEntered = false;
             default:
                 break;
         }
@@ -158,13 +177,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case BUTTON0_NUMBER:
-                if(!isZeroFirst){
+                if (!isZeroFirst) {
                     saveAndPrintSymbol(symbol);
                 }
                 break;
 
             default:
-                if(isZeroFirst){
+                if (isZeroFirst) {
                     resultText = "";
                     isZeroFirst = false;
                 }
@@ -174,9 +193,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void saveAndPrintSymbol(char symbol){
+    private void onOperatorButtonClick(char operator){
+        if(isOperatorNotEntered){
+            data.operation(operator);
+            memoryCell = resultText + " " + operator + " ";
+            resultTextView.setText(String.format("%s", memoryCell));
+            resultText = "";
+            isOperatorNotEntered = false;
+        }
+    }
+
+    private void saveAndPrintSymbol(char symbol) {
         resultText += symbol;
-        resultTextView.setText(resultText);
+        resultTextView.setText(String.format("%s%s", memoryCell, resultText));
         data.addData(resultText);
     }
 
@@ -184,6 +213,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (str == null || str.length() == 0 || str.equals("0")) {
             return str;
         }
-        return str.substring(0, str.length()-1);
+        return str.substring(0, str.length() - 1);
     }
 }
