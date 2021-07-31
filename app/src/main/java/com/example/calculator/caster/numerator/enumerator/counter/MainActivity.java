@@ -7,12 +7,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.zip.ZipEntry;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     private TextView resultTextView;
-    private String resultText = "";
-    private Data data;
-
+    private String resultText = "0";
+    private final char BUTTON1_NUMBER = '1';
+    private final char BUTTON2_NUMBER = '2';
+    private final char BUTTON3_NUMBER = '3';
+    private final char BUTTON4_NUMBER = '4';
+    private final char BUTTON5_NUMBER = '5';
+    private final char BUTTON6_NUMBER = '6';
+    private final char BUTTON7_NUMBER = '7';
+    private final char BUTTON8_NUMBER = '8';
+    private final char BUTTON9_NUMBER = '9';
+    private final char BUTTON0_NUMBER = '0';
+    private final char COMMA = '.';
+    private boolean isCommaNotEntered = true;
+    private boolean isZeroFirst = true;
+    private final Data data = new Data();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         resultTextView = findViewById(R.id.resultText);
+        resultTextView.setText(resultText);
 
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
@@ -64,70 +78,98 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @SuppressLint("NonConstantResourceId")
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     public void onClick(View v) {
-        final int BUTTON1_NUMBER = 1;
-        final int BUTTON2_NUMBER = 2;
-        final int BUTTON3_NUMBER = 3;
-        final int BUTTON4_NUMBER = 4;
-        final int BUTTON5_NUMBER = 5;
-        final int BUTTON6_NUMBER = 6;
-        final int BUTTON7_NUMBER = 7;
-        final int BUTTON8_NUMBER = 8;
-        final int BUTTON9_NUMBER = 9;
-        final int BUTTON0_NUMBER = 0;
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button1:
-                onNumberButtonClick(BUTTON1_NUMBER);
+                onSymbolButtonClick(BUTTON1_NUMBER);
                 break;
             case R.id.button2:
-                onNumberButtonClick(BUTTON2_NUMBER);
+                onSymbolButtonClick(BUTTON2_NUMBER);
                 break;
             case R.id.button3:
-                onNumberButtonClick(BUTTON3_NUMBER);
+                onSymbolButtonClick(BUTTON3_NUMBER);
                 break;
             case R.id.button4:
-                onNumberButtonClick(BUTTON4_NUMBER);
+                onSymbolButtonClick(BUTTON4_NUMBER);
                 break;
             case R.id.button5:
-                onNumberButtonClick(BUTTON5_NUMBER);
+                onSymbolButtonClick(BUTTON5_NUMBER);
                 break;
             case R.id.button6:
-                onNumberButtonClick(BUTTON6_NUMBER);
+                onSymbolButtonClick(BUTTON6_NUMBER);
                 break;
             case R.id.button7:
-                onNumberButtonClick(BUTTON7_NUMBER);
+                onSymbolButtonClick(BUTTON7_NUMBER);
                 break;
             case R.id.button8:
-                onNumberButtonClick(BUTTON8_NUMBER);
+                onSymbolButtonClick(BUTTON8_NUMBER);
                 break;
             case R.id.button9:
-                onNumberButtonClick(BUTTON9_NUMBER);
+                onSymbolButtonClick(BUTTON9_NUMBER);
                 break;
             case R.id.button0:
-                onNumberButtonClick(BUTTON0_NUMBER);
+                onSymbolButtonClick(BUTTON0_NUMBER);
+                break;
+            case R.id.button_comma:
+                onSymbolButtonClick(COMMA);
                 break;
 
-            case R.id.button_plus:
-            case R.id.button_minus:
-            case R.id.button_multiply:
-            case R.id.button_divide:
-            case R.id.button_percent:
-            case R.id.button_delete_symbol:
-            case R.id.button_all_clear:
-            case R.id.button_comma:
-            case R.id.button_equals:
 
+            case R.id.button_plus:
+
+            case R.id.button_minus:
+
+            case R.id.button_multiply:
+
+            case R.id.button_divide:
+
+            case R.id.button_percent:
+
+            case R.id.button_delete_symbol:
+
+            case R.id.button_all_clear:
+
+            case R.id.button_equals:
+                resultText = String.valueOf(data.equals());
+                resultTextView.setText("= " + resultText);
             default:
                 break;
         }
     }
 
-    private void onNumberButtonClick(int buttonNumber) {
-        data.addData(buttonNumber);
-        resultText += String.valueOf(buttonNumber);
-        resultTextView.setText(resultText);
+
+    private void onSymbolButtonClick(char symbol) {
+        switch (symbol) {
+            case COMMA:
+                if (isCommaNotEntered) {
+                    resultText += symbol;
+                    resultTextView.setText(resultText);
+                    data.addData(resultText);
+                    isCommaNotEntered = false;
+                }
+                break;
+
+            case BUTTON0_NUMBER:
+                if(!isZeroFirst){
+                    resultText += symbol;
+                    resultTextView.setText(resultText);
+                    data.addData(resultText);
+                }
+                break;
+
+            default:
+                if(isZeroFirst){
+                    resultText = "";
+                    isZeroFirst = false;
+                }
+                resultText += symbol;
+                resultTextView.setText(resultText);
+                data.addData(resultText);
+                break;
+        }
+
     }
 
 }
