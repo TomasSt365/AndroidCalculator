@@ -11,6 +11,10 @@ public class Data {
         basicData = Double.parseDouble(resultText);
     }
 
+    public void clearAll(){
+        basicData = 0;
+    }
+
     public double equals(){
         return basicData;
     }

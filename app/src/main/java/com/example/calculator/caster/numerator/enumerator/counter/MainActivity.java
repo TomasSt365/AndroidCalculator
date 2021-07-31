@@ -118,19 +118,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.button_plus:
-
+                break;
             case R.id.button_minus:
-
+                break;
             case R.id.button_multiply:
-
+                break;
             case R.id.button_divide:
-
+                break;
             case R.id.button_percent:
-
+                break;
             case R.id.button_delete_symbol:
-
+                resultText = removeLastChar(resultText);
+                resultTextView.setText(resultText);
+                break;
             case R.id.button_all_clear:
-
+                data.clearAll();
+                resultText = "0";
+                isZeroFirst = true;
+                isCommaNotEntered = true;
+                resultTextView.setText(resultText);
+                break;
             case R.id.button_equals:
                 resultText = String.valueOf(data.equals());
                 resultTextView.setText("= " + resultText);
@@ -144,18 +151,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (symbol) {
             case COMMA:
                 if (isCommaNotEntered) {
-                    resultText += symbol;
-                    resultTextView.setText(resultText);
-                    data.addData(resultText);
                     isCommaNotEntered = false;
+                    isZeroFirst = false;
+                    saveAndPrintSymbol(symbol);
                 }
                 break;
 
             case BUTTON0_NUMBER:
                 if(!isZeroFirst){
-                    resultText += symbol;
-                    resultTextView.setText(resultText);
-                    data.addData(resultText);
+                    saveAndPrintSymbol(symbol);
                 }
                 break;
 
@@ -164,12 +168,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     resultText = "";
                     isZeroFirst = false;
                 }
-                resultText += symbol;
-                resultTextView.setText(resultText);
-                data.addData(resultText);
+                saveAndPrintSymbol(symbol);
                 break;
         }
 
     }
 
+    private void saveAndPrintSymbol(char symbol){
+        resultText += symbol;
+        resultTextView.setText(resultText);
+        data.addData(resultText);
+    }
+
+    private String removeLastChar(String str) {
+        if (str == null || str.length() == 0 || str.equals("0")) {
+            return str;
+        }
+        return str.substring(0, str.length()-1);
+    }
 }
