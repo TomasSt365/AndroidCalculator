@@ -4,25 +4,25 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Data implements Parcelable {
-    private final char BUTTON1_NUMBER = '1';
-    private final char BUTTON2_NUMBER = '2';
-    private final char BUTTON3_NUMBER = '3';
-    private final char BUTTON4_NUMBER = '4';
-    private final char BUTTON5_NUMBER = '5';
-    private final char BUTTON6_NUMBER = '6';
-    private final char BUTTON7_NUMBER = '7';
-    private final char BUTTON8_NUMBER = '8';
-    private final char BUTTON9_NUMBER = '9';
-    private final char BUTTON0_NUMBER = '0';
-    private final char COMMA = '.';
-    private final String PlUS = "+";
-    private final String MINUS = "-";
-    private final String MULTIPLY = "X";
-    private final String DIVIDE = "÷";
-    private final String PERCENT = "%";
-    private final int LIMIT_SYMBOLS = 12;
-    private final byte TRUE = 1;
-    private final byte FALSE = 0;
+    private final static char BUTTON1_NUMBER = '1';
+    private final static char BUTTON2_NUMBER = '2';
+    private final static char BUTTON3_NUMBER = '3';
+    private final static char BUTTON4_NUMBER = '4';
+    private final static char BUTTON5_NUMBER = '5';
+    private final static char BUTTON6_NUMBER = '6';
+    private final static char BUTTON7_NUMBER = '7';
+    private final static char BUTTON8_NUMBER = '8';
+    private final static char BUTTON9_NUMBER = '9';
+    private final static char BUTTON0_NUMBER = '0';
+    private final static char COMMA = '.';
+    private final static String PlUS = "+";
+    private final static String MINUS = "-";
+    private final static String MULTIPLY = "X";
+    private final static String DIVIDE = "÷";
+    private final static String PERCENT = "%";
+    private final static int LIMIT_SYMBOLS = 12;
+    private final static byte TRUE = 1;
+    private final static byte FALSE = 0;
 
     private int numberOfEnteredSymbols;
     private double basicData;
@@ -33,6 +33,7 @@ public class Data implements Parcelable {
     private byte isCommaNotEntered;
     private byte isZeroFirst;
     private byte isOperatorNotEntered;
+    private byte isEqualsEntered;
 
     public Data(){
         numberOfEnteredSymbols = 0;
@@ -41,6 +42,7 @@ public class Data implements Parcelable {
         isCommaNotEntered = TRUE;
         isZeroFirst = TRUE;
         isOperatorNotEntered = TRUE;
+        isEqualsEntered = FALSE;
     }
 
 
@@ -180,6 +182,10 @@ public class Data implements Parcelable {
         return FALSE;
     }
 
+    public byte getIsEqualsEntered() {
+        return isEqualsEntered;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -199,18 +205,19 @@ public class Data implements Parcelable {
     }
 
     public void onSymbolButtonClick(char symbol) {
+        isEqualsEntered = FALSE;
         switch (symbol) {
             case COMMA:
                 if (isCommaNotEntered == TRUE) {
                     isCommaNotEntered = FALSE;
                     isZeroFirst = FALSE;
-                    saveAndPrintSymbol(symbol);
+                    saveSymbol(symbol);
                 }
                 break;
 
             case BUTTON0_NUMBER:
                 if (isZeroFirst == FALSE) {
-                    saveAndPrintSymbol(symbol);
+                    saveSymbol(symbol);
                 }
                 break;
 
@@ -219,12 +226,13 @@ public class Data implements Parcelable {
                     resultText = "";
                     isZeroFirst = FALSE;
                 }
-                saveAndPrintSymbol(symbol);
+                saveSymbol(symbol);
                 break;
         }
     }
 
     public void onOperatorButtonClick(String operator){
+        isEqualsEntered = FALSE;
         if(isOperatorNotEntered == TRUE){
             isCommaNotEntered = TRUE;
             isZeroFirst = FALSE;
@@ -238,7 +246,7 @@ public class Data implements Parcelable {
         }
     }
 
-    private void saveAndPrintSymbol(char symbol) {
+    private void saveSymbol(char symbol) {
         if(LIMIT_SYMBOLS != numberOfEnteredSymbols){
             resultText += symbol;
             basicData = Double.parseDouble(resultText);

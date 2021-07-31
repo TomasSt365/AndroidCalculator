@@ -2,12 +2,15 @@ package com.example.calculator.caster.numerator.enumerator.counter;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private final static String KEY = "Data";
+
     private TextView resultTextView;
     private TextView errorTextView;
     private Data data;
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     reset();
                     break;
                 }
-                resultTextView.setText("= " + data.getResultText());
+                setResultText();
                 break;
             default:
                 break;
@@ -129,20 +132,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void onSymbolButtonClick(char symbol) {
         errorTextView.setText("");
         data.onSymbolButtonClick(symbol);
-        resultTextView.setText(String.format("%s%s", data.getMemoryCellText(), data.getResultText()));
+        setResultText();
     }
 
     private void onOperatorButtonClick(String operator){
         errorTextView.setText("");
         if(data.getIsOperatorNotEntered() == data.getTRUE()){
             data.onOperatorButtonClick(operator);
-            resultTextView.setText(String.format("%s", data.getMemoryCellText()));
+            setResultText();
         }
     }
 
     private void reset(){
         data.reset();
-        resultTextView.setText(data.getResultText());
+        setResultText();
     }
 
     private void initView(){
@@ -187,5 +190,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_all_clear.setOnClickListener(this);
         button_comma.setOnClickListener(this);
         button_equals.setOnClickListener(this);
+    }
+
+    private void setResultText(){
+        if(data.getIsEqualsEntered() == data.getTRUE())
+            resultTextView.setText(String.format("= %s", data.getResultText()));
+        else{
+            resultTextView.setText(String.format("%s%s", data.getMemoryCellText(), data.getResultText()));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(KEY, data);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        data = savedInstanceState.getParcelable(KEY);
+
     }
 }
