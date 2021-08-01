@@ -145,7 +145,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button1"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,7 +158,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button2"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
@@ -169,7 +171,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button3"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -181,7 +184,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button4"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -193,7 +197,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button5"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -205,7 +210,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button6"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -217,7 +223,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button7"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -229,7 +236,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button8"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -241,7 +249,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button9"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
@@ -253,7 +262,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/button0"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
@@ -265,7 +275,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/plus"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -277,7 +288,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/minus"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline8"
@@ -289,7 +301,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/multiply"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -301,7 +314,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/divide"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
@@ -313,7 +327,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/percent"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/button_divide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
@@ -325,7 +340,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/deleteSymbol"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -337,7 +353,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/allClear"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -349,7 +366,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/comma"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/button_multiply"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -361,7 +379,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/equals"
-        android:textSize="@dimen/buttonSize"
+        style="@style/ButtonStyle"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
