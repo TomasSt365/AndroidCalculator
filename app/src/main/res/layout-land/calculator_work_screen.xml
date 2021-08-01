@@ -323,23 +323,25 @@
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_delete_symbol"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/deleteSymbol"
         android:textSize="@dimen/buttonSize"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
         tools:ignore="MissingConstraints,SpUsage" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_all_clear"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/allClear"
         android:textSize="@dimen/buttonSize"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
         tools:ignore="MissingConstraints,SpUsage" />
 
     <android.support.v7.widget.AppCompatButton
