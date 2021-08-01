@@ -3,4 +3,5 @@
     <dimen name="buttonTextSize">20sp</dimen>
     <dimen name="resultSize">50sp</dimen>
     <dimen name="errorSize">25sp</dimen>
+    <dimen name="radius">200dp</dimen>
 </resources>
