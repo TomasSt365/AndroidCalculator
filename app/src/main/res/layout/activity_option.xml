@@ -8,6 +8,7 @@
     tools:context=".OptionActivity">
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/optionText"
         style="@style/optionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,18 +20,21 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/choice_theme_text"
             style="@style/choiceThemeText"
-            android:text="@string/choice_theme"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/choice_theme" />
 
         <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radio_button_light_theme"
             style="@style/radioButtonInOptionStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/light_theme" />
 
         <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radio_button_night_theme"
             style="@style/radioButtonInOptionStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
