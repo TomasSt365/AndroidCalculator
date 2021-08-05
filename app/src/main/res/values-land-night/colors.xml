@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="result_text_color">#FFFFFFFF</color>
-    <color name="error_text_color">#ffcc0000</color>
     <color name="button_color">#131733</color>
-    <color name="option_text_color">#FF3700B3</color>
+    <color name="option_text_color">#E64A19</color>
     <color name="button_text_color">#FFFFFFFF</color>
 </resources>

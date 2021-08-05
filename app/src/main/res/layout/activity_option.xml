@@ -8,21 +8,33 @@
     tools:context=".OptionActivity">
 
     <android.support.v7.widget.AppCompatTextView
+        style="@style/optionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/option_text"
-        style="@style/optionText"/>
+        android:text="@string/option_text" />
 
-    <android.support.v7.widget.AppCompatRadioButton
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/light_theme"
-        style="@style/radioButtonInOptionStyle"/>
+        android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatRadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/night_theme"
-        style="@style/radioButtonInOptionStyle"/>
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/choiceThemeText"
+            android:text="@string/choice_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            style="@style/radioButtonInOptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/light_theme" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            style="@style/radioButtonInOptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/night_theme" />
+    </LinearLayout>
 
 </LinearLayout>

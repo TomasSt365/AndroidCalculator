@@ -5,4 +5,5 @@
     <color name="button_color">#FFFFFFFF</color>
     <color name="option_text_color">#FF3700B3</color>
     <color name="button_text_color">#FFFFFFFF</color>
+    <color name="radio_button_color">#000000</color>
 </resources>

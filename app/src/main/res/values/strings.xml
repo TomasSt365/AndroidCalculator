@@ -30,4 +30,5 @@
     <string name="light_theme">Дневная тема</string>
     <string name="option_text">Настройки</string>
     <string name="night_theme">Ночная тема</string>
+    <string name="choice_theme">Выбор темы:</string>
 </resources>
