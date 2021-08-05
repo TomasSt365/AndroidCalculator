@@ -1,6 +1,7 @@
 package com.example.calculator.caster.numerator.enumerator.counter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -126,6 +127,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 setResultText();
                 break;
+
+            case R.id.option_button:
+                Intent i = new Intent(MainActivity.this,OptionActivity.class);
+                startActivity(i);
+                break;
             default:
                 break;
         }
@@ -171,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button_all_clear = findViewById(R.id.button_all_clear);
         Button button_comma = findViewById(R.id.button_comma);
         Button button_equals = findViewById(R.id.button_equals);
+        Button option_button = findViewById(R.id.option_button);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -192,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_all_clear.setOnClickListener(this);
         button_comma.setOnClickListener(this);
         button_equals.setOnClickListener(this);
+        option_button.setOnClickListener(this);
     }
 
     private void setResultText() {
