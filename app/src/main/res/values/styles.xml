@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonStyle">
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="resultTextStyle">
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/result_text_color</item>
+        <item name="android:textSize">@dimen/resultSize</item>
+    </style>
+
+    <style name="errorTextStyle">
+        <item name="android:gravity">end</item>
+        <item name="android:textSize">@dimen/errorSize</item>
+        <item name="android:textColor">@color/error_text_color</item>
+    </style>
+
+    <style name="radioButtonInOptionStyle">
+        <item name="android:textSize">@dimen/radioButtonSize</item>
+    </style>
+
+    <style name="optionText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/optionText</item>
+        <item name="android:textColor">@color/option_text_color</item>
+    </style>
+
+</resources>
