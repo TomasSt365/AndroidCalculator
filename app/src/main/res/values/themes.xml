@@ -39,4 +39,13 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="radioButtonInOptionStyle">
+        <item name="android:textSize">@dimen/radioButtonSize</item>
+    </style>
+
+    <style name="optionText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/optionText</item>
+        <item name="android:textColor">@color/optionTextColor</item>
+    </style>
 </resources>

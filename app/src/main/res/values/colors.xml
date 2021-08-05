@@ -12,6 +12,7 @@
     <color name="result_text_land">#FFFFFFFF</color>
     <color name="error_text">#ffcc0000</color>
     <color name="button">#FFFFFFFF</color>
+    <color name="optionTextColor">#FF3700B3</color>
 
     <color name="night_result_text">#FFFFFFFF</color>
     <color name="night_button">#131733</color>
