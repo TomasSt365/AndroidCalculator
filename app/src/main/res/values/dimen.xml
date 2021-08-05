@@ -8,5 +8,5 @@
     <dimen name="choiceThemeTextSize">30sp</dimen>
 
     <dimen name="radius">200dp</dimen>
-    <dimen name="optionButtonSize">80dp</dimen>
+    <dimen name="optionButtonSize">60dp</dimen>
 </resources>

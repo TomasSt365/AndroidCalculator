@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/option_text" />
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -39,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/night_theme" />
-    </LinearLayout>
+    </RadioGroup>
+
 
 </LinearLayout>
