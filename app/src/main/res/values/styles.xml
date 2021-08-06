@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="buttonStyle">
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="resultTextStyle">
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/result_text_color</item>
+        <item name="android:textSize">@dimen/resultSize</item>
+    </style>
+
+    <style name="errorTextStyle">
+        <item name="android:gravity">end</item>
+        <item name="android:textSize">@dimen/errorSize</item>
+        <item name="android:textColor">@color/error_text_color</item>
+    </style>
+
+    <style name="radioButtonInOptionStyle">
+        <item name="android:textSize">@dimen/radioButtonSize</item>
+        <item name="android:textColor">@color/radio_button_color</item>
+    </style>
+
+    <style name="optionText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/optionText</item>
+        <item name="android:textColor">@color/option_text_color</item>
+    </style>
+
+    <style name="choiceThemeText">
+        <item name="android:textColor">@color/choice_theme_color</item>
+        <item name="android:textSize">@dimen/choiceThemeTextSize</item>
+    </style>
+
+    <style name="optionButtonStyle">
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:background">@drawable/option</item>
+        <item name="android:layout_width">@dimen/optionButtonSize</item>
+        <item name="android:layout_height">@dimen/optionButtonSize</item>
+    </style>
+
+</resources>

@@ -1,19 +1,24 @@
 package com.example.calculator.caster.numerator.enumerator.counter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String KEY_SP = "SP";
+    private static final String KEY_NIGHT_MODE = "Night Mode";
     private final static String KEY = "Data";
 
     private TextView resultTextView;
     private TextView errorTextView;
-    private Data data;
+    private static Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         data = new Data();
-        resultTextView = findViewById(R.id.resultText);
-        errorTextView = findViewById(R.id.errorText);
-        resultTextView.setText(data.getResultText());
-
+        applyNightModeDependingOnSettings();
         initView();
     }
 
@@ -126,6 +128,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 setResultText();
                 break;
+
+            case R.id.option_button:
+                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(i);
+                finish();
+                break;
             default:
                 break;
         }
@@ -151,6 +159,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
+        resultTextView = findViewById(R.id.resultText);
+        errorTextView = findViewById(R.id.errorText);
+        resultTextView.setText(data.getResultText());
+
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
@@ -171,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button_all_clear = findViewById(R.id.button_all_clear);
         Button button_comma = findViewById(R.id.button_comma);
         Button button_equals = findViewById(R.id.button_equals);
+        Button option_button = findViewById(R.id.option_button);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -192,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_all_clear.setOnClickListener(this);
         button_comma.setOnClickListener(this);
         button_equals.setOnClickListener(this);
+        option_button.setOnClickListener(this);
     }
 
     private void setResultText() {
@@ -200,6 +214,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else {
             resultTextView.setText(String.format("%s%s", data.getMemoryCellText(), data.getResultText()));
         }
+    }
+
+    public void applyNightModeDependingOnSettings() {
+        switch (getNightModeValue()) {
+            case AppCompatDelegate.MODE_NIGHT_NO:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case AppCompatDelegate.MODE_NIGHT_YES:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            default:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+        }
+    }
+
+    private int getNightModeValue() {
+        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
+        return sharedPreferences.getInt(KEY_NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
     }
 
     @Override
@@ -214,4 +247,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         data = savedInstanceState.getParcelable(KEY);
         setResultText();
     }
+
 }
