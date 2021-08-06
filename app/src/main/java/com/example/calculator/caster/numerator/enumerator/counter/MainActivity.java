@@ -129,8 +129,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.option_button:
-                Intent i = new Intent(MainActivity.this,OptionActivity.class);
+                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(i);
+                finish();
                 break;
             default:
                 break;
@@ -222,4 +223,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         data = savedInstanceState.getParcelable(KEY);
         setResultText();
     }
+
 }

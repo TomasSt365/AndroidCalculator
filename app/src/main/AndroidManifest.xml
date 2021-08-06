@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Calculator"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".OptionActivity"
+            android:name=".SettingsActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
