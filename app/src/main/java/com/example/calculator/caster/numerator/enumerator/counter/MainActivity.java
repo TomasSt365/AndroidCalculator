@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         data = new Data();
-        resultTextView = findViewById(R.id.resultText);
-        errorTextView = findViewById(R.id.errorText);
-        resultTextView.setText(data.getResultText());
 
         initView();
     }
@@ -158,6 +155,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
+        resultTextView = findViewById(R.id.resultText);
+        errorTextView = findViewById(R.id.errorText);
+        resultTextView.setText(data.getResultText());
+
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
@@ -223,5 +224,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         data = savedInstanceState.getParcelable(KEY);
         setResultText();
     }
-
 }
