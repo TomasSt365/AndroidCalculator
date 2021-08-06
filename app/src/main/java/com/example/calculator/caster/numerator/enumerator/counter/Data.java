@@ -34,6 +34,7 @@ public class Data implements Parcelable {
     private byte isZeroFirst;
     private byte isOperatorNotEntered;
     private byte isEqualsEntered;
+    private byte isSettingsNotChanged;
 
     public Data() {
         numberOfEnteredSymbols = 0;
@@ -43,6 +44,7 @@ public class Data implements Parcelable {
         isZeroFirst = TRUE;
         isOperatorNotEntered = TRUE;
         isEqualsEntered = FALSE;
+        isSettingsNotChanged = TRUE;
     }
 
 
@@ -56,6 +58,7 @@ public class Data implements Parcelable {
         isCommaNotEntered = in.readByte();
         isZeroFirst = in.readByte();
         isOperatorNotEntered = in.readByte();
+        isSettingsNotChanged = in.readByte();
     }
 
     public static final Creator<Data> CREATOR = new Creator<Data>() {
@@ -100,6 +103,14 @@ public class Data implements Parcelable {
 
     public byte getIsZeroFirst() {
         return isZeroFirst;
+    }
+
+    public byte getIsSettingsNotChanged() {
+        return isSettingsNotChanged;
+    }
+
+    public void setIsSettingsNotChanged(byte isSettingsNotChanged) {
+        this.isSettingsNotChanged = isSettingsNotChanged;
     }
 
     public byte getIsOperatorNotEntered() {

@@ -4,23 +4,25 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.RadioButton;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-
     private static final String KEY_SP = "SP";
     private static final String KEY_NIGHT_MODE = "Night Mode";
-    private static int nightModeCode;
+    private final static String KEY = "Data";
+
+    Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        data = new Data();
 
-        nightModeCode = getNightModeValue();
         applyNightModeDependingOnSettings();
         initView();
 
@@ -32,11 +34,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.radio_button_light_theme:
                 setNightModeValue(AppCompatDelegate.MODE_NIGHT_NO);
-                restartApp();
+                restartActivity();
                 break;
             case R.id.radio_button_night_theme:
                 setNightModeValue(AppCompatDelegate.MODE_NIGHT_YES);
-                restartApp();
+                restartActivity();
                 break;
             default:
                 break;
@@ -60,7 +62,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             default:
                 break;
         }
+    }
 
+    private void restartActivity() {
+        Intent SettingsActivityIntent = new Intent(SettingsActivity.this, this.getClass());
+        this.startActivity(SettingsActivityIntent);
+        finish();
     }
 
     private void setNightModeValue(int nightModeCode) {
@@ -70,22 +77,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         editor.apply();
     }
 
-    private int getNightModeValue() {
-        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
-        return sharedPreferences.getInt(KEY_NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-    }
-
-    private void restartApp() {
-        Intent i = new Intent(SettingsActivity.this, this.getClass());
-        Intent iSecond = new Intent(SettingsActivity.this, MainActivity.class);
-        startActivity(iSecond);
-        this.startActivity(i);
-        finish();
-
-    }
-
-    public static void applyNightModeDependingOnSettings() {
-        switch (nightModeCode) {
+    public void applyNightModeDependingOnSettings() {
+        switch (getNightModeValue()) {
             case AppCompatDelegate.MODE_NIGHT_NO:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 break;
@@ -98,13 +91,28 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private int getNightModeValue() {
+        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
+        return sharedPreferences.getInt(KEY_NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(SettingsActivity.this, this.getClass());
-        Intent iSecond = new Intent(SettingsActivity.this, MainActivity.class);
-        this.startActivity(i);
-        startActivity(iSecond);
-        finish();
-    }//TODO:Костыль
+        Intent i = new Intent(SettingsActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(KEY, data);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        data = savedInstanceState.getParcelable(KEY);
+
+    }
 }
